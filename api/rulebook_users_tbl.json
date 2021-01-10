@@ -1,0 +1,19 @@
+{
+  "TableName": "rulebook_users_tbl",
+  "KeySchema": [
+    {
+      "AttributeName": "MailAddress",
+      "KeyType": "HASH"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "MailAddress",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}

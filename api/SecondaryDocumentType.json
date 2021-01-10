@@ -1,0 +1,29 @@
+{
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "documentType",
+      "AttributeType": "S"
+    }
+  ],
+  "GlobalSecondaryIndexUpdates": [
+    {
+      "Create": {
+        "IndexName": "documentTypeIndex",
+        "KeySchema": [
+          {
+            "AttributeName": "documentType",
+            "KeyType": "HASH"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "ALL"
+        },
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        }
+      }
+    }
+  ],
+  "TableName": "rulebook_documents_tbl"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "npm run clean && npm run build && aws lambda update-function-code --function-name RulebookFunction --zip-file fileb://build.zip --publish",
+    "build": "zip -r build.zip node_modules index.js app.js routes.js copy.json .env",
+    "start": "node app-local",
+    "list-tables": "aws dynamodb list-tables --endpoint-url http://localhost:8000",
+    "delete-database": "aws dynamodb delete-table --table-name rulebook_users_tbl --endpoint-url http://localhost:8000",
+    "update-database": "aws dynamodb update-table --cli-input-json file://SecondaryDocumentType.json",
+    "create-database": "aws dynamodb create-table --cli-input-json file://rulebook_users_tbl.json --endpoint-url http://localhost:8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.751.0",
+    "aws-serverless-express": "^3.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

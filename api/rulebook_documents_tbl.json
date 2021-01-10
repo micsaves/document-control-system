@@ -1,0 +1,27 @@
+{
+  "TableName": "rulebook_documents_tbl",
+  "KeySchema": [
+    {
+      "AttributeName": "_id",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "documentType",
+      "KeyType": "RANGE"
+    }
+  ],
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "_id",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "documentType",
+      "AttributeType": "S"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 1,
+    "WriteCapacityUnits": 1
+  }
+}
